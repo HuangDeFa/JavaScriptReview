@@ -1,0 +1,17 @@
+{
+  "name": "review",
+  "version": "1.0.0",
+  "description": "A JavaScript Review learning",
+  "main": "main",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "JavaScript",
+    "Es6",
+    "Algorithms",
+    "Datastructure"
+  ],
+  "author": "前端小白",
+  "license": "MIT"
+}
