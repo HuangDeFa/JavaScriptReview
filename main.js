@@ -3,45 +3,33 @@
 import { deepClone } from './src/utils.js';
 import List from './src/DataStructure/List.js';
 import LinkList from './src/DataStructure/LinkList.js';
+import {
+  bubbleSort, selectedSort, insertedSort, basedSort, bucketSort,
+  countingSort, mergeSort, shellSort,
+} from './src/Algorithms/BaseAlgorithms.js';
 
 (function main() {
   console.log('Hello world is the best entery point');
   listTest();
   utilsTest();
   linkListTest();
-  (function bubbleSort(data) {
-    const dataSource = data;
-    const numElements = dataSource.length;
-    let temp;
-    for (let outer = numElements; outer >= 2; --outer) {
-      for (let inner = 0; inner <= outer - 2; ++inner) {
-        if (dataSource[inner] > dataSource[inner + 1]) {
-          temp = dataSource[inner];
-          dataSource[inner] = dataSource[inner + 1];
-          dataSource[inner + 1] = temp;
-        }
-      }
-    }
-    console.log('bubble sort datas ', ...dataSource);
-  }([10, 8, 3, 2, 2, 4, 9, 5, 4, 3]));
-
-  (function selectionSort(data) {
-    const dataSource = data;
-    for (let i = 0; i < dataSource.length - 1; i++) {
-      let min = i;
-      for (let j = i + 1; j <= dataSource.length - 1; j++) {
-        if (dataSource[j] < dataSource[min]) {
-          min = j;
-        }
-      }
-      if (min !== i) {
-        const temp = dataSource[min];
-        dataSource[min] = dataSource[i];
-        dataSource[i] = temp;
-      }
-    }
-    console.log('selection sort datas ', ...dataSource);
-  }([10, 8, 3, 2, 2, 4, 9, 5, 4, 3]));
+ 
+  let result = bubbleSort([10, 8, 3, 2, 2, 4, 9, 5, 4, 3]);
+  console.log('bubble sort datas ', ...result);
+  result = selectedSort([10, 8, 3, 2, 2, 4, 9, 5, 4, 3]);
+  console.log('selection sort datas ', ...result);
+  result = insertedSort([10, 8, 3, 2, 2, 4, 9, 5, 4, 3]);
+  console.log('insert sort datas ', ...result);
+  result = basedSort([10, 8, 109, -8, 220, 30, 120, -12, 89, 3, 2, 2, 4, 9, 5, 4, 3]);
+  console.log('based sort datas ', ...result);
+  result = bucketSort([10, 8, 109, -8, 220, 30, 120, -12, 89, 3, 2, 2, 4, 9, 5, 4, 3]);
+  console.log('bucket sort datas ', ...result);
+  result = countingSort([10, 8, 109, 220, 30, 120, 89, 3, 2, 2, 4, 9, 5, 4, 3]);
+  console.log('count sort datas ', ...result);
+  result = mergeSort([10, 8, 109, -8, 220, 30, 120, -12, 89, 3, 2, 2, 4, 9, 5, 4, 3]);
+  console.log('merge sort datas ', ...result);
+  result = shellSort([10, 8, 109, -8, 220, 30, 120, -12, 89, 3, 2, 2, 4, 9, 5, 4, 3]);
+  console.log('shell sort datas ', ...result);
 }());
 
 function utilsTest() {
