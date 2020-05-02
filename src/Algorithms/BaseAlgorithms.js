@@ -131,6 +131,11 @@ export function quickSort(data) {
   if (Array.isArray(data)) {
     if (data.length > 1) {
       const array = data;
+      const index = Math.floor(array.length / 2);
+      const pivot = array.splice(index, 1)[0];
+      const left = array.filter((x) => x < pivot);
+      const right = array.filter((x) => x >= pivot);
+      return quickSort(left).concat([pivot], quickSort(right));
     }
   }
   return data;

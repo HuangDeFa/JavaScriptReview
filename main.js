@@ -5,7 +5,7 @@ import List from './src/DataStructure/List.js';
 import LinkList from './src/DataStructure/LinkList.js';
 import {
   bubbleSort, selectedSort, insertedSort, basedSort, bucketSort,
-  countingSort, mergeSort, shellSort,
+  countingSort, mergeSort, shellSort, quickSort,
 } from './src/Algorithms/BaseAlgorithms.js';
 
 (function main() {
@@ -30,6 +30,8 @@ import {
   console.log('merge sort datas ', ...result);
   result = shellSort([10, 8, 109, -8, 220, 30, 120, -12, 89, 3, 2, 2, 4, 9, 5, 4, 3]);
   console.log('shell sort datas ', ...result);
+  result = quickSort([10, 8, 109, -8, 220, 30, 120, -12, 89, 3, 2, 2, 4, 9, 5, 4, 3]);
+  console.log('quick sort datas ', ...result);
 }());
 
 function utilsTest() {
