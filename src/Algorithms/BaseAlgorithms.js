@@ -140,6 +140,42 @@ export function quickSort(data) {
   }
   return data;
 }
+// 双指针快排
+export function quickSort2(data) {
+  if (Array.isArray(data) && data.length > 1) {
+    const sort = (arr, left, right) => {
+      const pivot = arr[left];
+      const startIndex = left;
+      while (left !== right) {
+        while (left < right && arr[right] > pivot) {
+          right--;
+        }
+        while (left < right && arr[left] < pivot) {
+          left++;
+        }
+        if (left < right) {
+          const temp = arr[left];
+          arr[left] = arr[right];
+          arr[right] = temp;
+        }
+      }
+      if (startIndex !== left) {
+        const temp = arr[startIndex];
+        arr[left] = arr[startIndex];
+        arr[startIndex] = temp;
+      }
+      return left;
+    };
+    const quickSortInner = (arr, starIndex, endIndex) => {
+      if (starIndex < endIndex) {
+        const left = sort(arr, starIndex, endIndex);
+        quickSortInner(arr, starIndex, left - 1);
+        quickSortInner(arr, left + 1, endIndex);
+      }
+    };
+    quickSortInner(data, 0, data.length - 1);
+  }
+}
 
 // 希尔排序
 export function shellSort(data) {
